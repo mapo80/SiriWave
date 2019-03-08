@@ -18,9 +18,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dId-Q3-Npj" customClass="SiriWaveView" customModule="SiriWave" customModuleProvider="target">
+                                <rect key="frame" x="16" y="130" width="343" height="128"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="92i-vi-GV5"/>
+                                    <constraint firstAttribute="width" constant="343" id="Sz8-ns-2b0"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Kc-ET-p6V" customClass="SiriWaveView" customModule="SiriWave" customModuleProvider="target">
+                                <rect key="frame" x="16" y="130" width="343" height="128"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="ZnV-iI-OPw"/>
+                                    <constraint firstAttribute="width" constant="343" id="l4P-IA-u66"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zdi-q6-3Jt" customClass="SiriWaveView" customModule="SiriWave" customModuleProvider="target">
                                 <rect key="frame" x="16" y="130" width="343" height="128"/>
-                                <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="343" id="5FL-Fd-ZgA"/>
                                     <constraint firstAttribute="height" constant="128" id="SWe-a8-mmt"/>
@@ -29,14 +45,20 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="dId-Q3-Npj" firstAttribute="top" secondItem="Zdi-q6-3Jt" secondAttribute="top" id="1xu-cU-DbI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Zdi-q6-3Jt" secondAttribute="trailing" constant="16" id="3I5-Y9-2e6"/>
+                            <constraint firstItem="dId-Q3-Npj" firstAttribute="leading" secondItem="Zdi-q6-3Jt" secondAttribute="leading" id="BbE-g0-k9h"/>
+                            <constraint firstItem="dId-Q3-Npj" firstAttribute="top" secondItem="6Kc-ET-p6V" secondAttribute="top" id="H1Z-Em-MVc"/>
                             <constraint firstItem="Zdi-q6-3Jt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="110" id="Sbb-gy-1Qh"/>
+                            <constraint firstItem="dId-Q3-Npj" firstAttribute="leading" secondItem="6Kc-ET-p6V" secondAttribute="leading" id="rCI-Ft-hVN"/>
                             <constraint firstItem="Zdi-q6-3Jt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="yeI-sL-8OM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="siriWave" destination="Zdi-q6-3Jt" id="MdH-0p-cOO"/>
+                        <outlet property="siriWave2" destination="dId-Q3-Npj" id="qbL-mZ-hon"/>
+                        <outlet property="siriWave3" destination="6Kc-ET-p6V" id="END-J8-P0Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

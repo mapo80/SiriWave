@@ -12,6 +12,7 @@ public class SiriWaveView: UIView {
     public var amplitude: CGFloat = 1
     public var speed: CGFloat = 0.2
     public var pixelDepth: CGFloat = 0.02
+    public var color: UIColor = .red
     
     let GRAPH_X: CGFloat = 25
     let AMPLITUDE_FACTOR: CGFloat = 0.8
@@ -19,7 +20,7 @@ public class SiriWaveView: UIView {
     let DEAD_PX: CGFloat = 2
     let ATT_FACTOR: CGFloat = 4
     let DESPAWN_FACTOR: CGFloat = 0.02
-    let NOOFCURVES_RANGES: [CGFloat] = [2, 5]
+    let NOOFCURVES_RANGES: [CGFloat] = [5, 5]
     let AMPLITUDE_RANGES: [CGFloat] = [0.3, 1]
     let OFFSET_RANGES: [CGFloat] = [-3, 3]
     let WIDTH_RANGES: [CGFloat] = [1, 3]
@@ -72,22 +73,11 @@ public class SiriWaveView: UIView {
             self.respawnSingle(ci)
         }
     }
-    private func drawSupportLine(_ ctx: CGContext) {
-//        let coo: [CGFloat] = [0, heightMax, width, 1];
-//        let gradient = ctx.drawLinearGradient(<#T##gradient: CGGradient##CGGradient#>, start: <#T##CGPoint#>, end: <#T##CGPoint#>, options: <#T##CGGradientDrawingOptions#>) .create .createLinearGradient.apply(ctx, coo);
-//        gradient.addColorStop(0, 'transparent');
-//        gradient.addColorStop(0.1, 'rgba(255,255,255,.5)');
-//        gradient.addColorStop(1 - 0.1 - 0.1, 'rgba(255,255,255,.5)');
-//        gradient.addColorStop(1, 'transparent');
-//        
-//        ctx.fillStyle = gradient;
-//        ctx.fillRect.apply(ctx, coo);
-    }
     override public func draw(_ rect: CGRect) {
         
         let ctx: CGContext = UIGraphicsGetCurrentContext()!
-//        ctx.clear(self.bounds)
-//        ctx.setBlendMode(.lighten)
+        ctx.setAlpha(0.7)
+        ctx.setBlendMode(.plusLighter)
         
         for ci in 0..<noOfCurves {
             if spawnAt + Int(despawnTimeouts[ci]) <= Date().millisecondsSince1970 {
@@ -130,8 +120,8 @@ public class SiriWaveView: UIView {
             }
             
             ctx.closePath()
-            ctx.setFillColor(UIColor.red.cgColor)
-            ctx.setStrokeColor(UIColor.red.cgColor)
+            ctx.setFillColor(color.cgColor)
+            ctx.setStrokeColor(color.cgColor)
             ctx.fillPath()
         }
         
