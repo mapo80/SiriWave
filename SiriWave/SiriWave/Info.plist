@@ -41,5 +41,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>Need microphone access to test Siri Wave</string>
 </dict>
 </plist>

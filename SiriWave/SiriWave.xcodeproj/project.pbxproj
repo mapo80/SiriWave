@@ -13,6 +13,9 @@
 		C88D36D72232FB3000594238 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C88D36D62232FB3000594238 /* Assets.xcassets */; };
 		C88D36DA2232FB3000594238 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C88D36D82232FB3000594238 /* LaunchScreen.storyboard */; };
 		C88D36E32232FB9200594238 /* SiriWaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88D36E22232FB9200594238 /* SiriWaveView.swift */; };
+		C88D36F32233D61800594238 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88D36F22233D61800594238 /* DateExtension.swift */; };
+		C88D36F52233D63800594238 /* Lerp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88D36F42233D63800594238 /* Lerp.swift */; };
+		C88D36F72233D66000594238 /* Timeout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88D36F62233D66000594238 /* Timeout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		C88D36D92232FB3000594238 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C88D36DB2232FB3000594238 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C88D36E22232FB9200594238 /* SiriWaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiriWaveView.swift; sourceTree = "<group>"; };
+		C88D36F22233D61800594238 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		C88D36F42233D63800594238 /* Lerp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lerp.swift; sourceTree = "<group>"; };
+		C88D36F62233D66000594238 /* Timeout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timeout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,7 @@
 		C88D36CE2232FB2F00594238 /* SiriWave */ = {
 			isa = PBXGroup;
 			children = (
+				C88D36F12233D60600594238 /* Utility */,
 				C88D36E12232FB6E00594238 /* Views */,
 				C88D36CF2232FB2F00594238 /* AppDelegate.swift */,
 				C88D36D12232FB2F00594238 /* ViewController.swift */,
@@ -73,6 +80,16 @@
 				C88D36E22232FB9200594238 /* SiriWaveView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		C88D36F12233D60600594238 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				C88D36F22233D61800594238 /* DateExtension.swift */,
+				C88D36F42233D63800594238 /* Lerp.swift */,
+				C88D36F62233D66000594238 /* Timeout.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,8 +163,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C88D36D22232FB2F00594238 /* ViewController.swift in Sources */,
+				C88D36F32233D61800594238 /* DateExtension.swift in Sources */,
 				C88D36D02232FB2F00594238 /* AppDelegate.swift in Sources */,
 				C88D36E32232FB9200594238 /* SiriWaveView.swift in Sources */,
+				C88D36F52233D63800594238 /* Lerp.swift in Sources */,
+				C88D36F72233D66000594238 /* Timeout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,6 +314,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 94Q9JHN685;
 				INFOPLIST_FILE = SiriWave/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -311,6 +332,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 94Q9JHN685;
 				INFOPLIST_FILE = SiriWave/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
