@@ -17,7 +17,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupRecorder()
+        //setupRecorder()
+        testWithoutMic()
     }
     
     private func testWithoutMic() {
