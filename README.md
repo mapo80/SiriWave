@@ -9,3 +9,7 @@ https://medium.freecodecamp.org/how-i-built-siriwavejs-library-maths-and-code-be
 
 ### iOS 9+ style
 <img src="siri-wave-ios9+.gif" />
+
+## Usage
+
+To use it add SiriWaveView.swift in you project.
