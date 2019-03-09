@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         func modulate() {
             ampl = Lerp.lerp(ampl, 1.5, 0.1)
             //speed = Lerp.lerp(speed, 1, 0.1)
-            self.siriWave.update(ampl * 1.5)
+            self.siriWave.update(ampl * 5)
         }
         
         _ = Timeout.setInterval(0.2) {
