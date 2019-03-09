@@ -8,3 +8,4 @@ If you want to know what are the mathematical functions for its operation, you c
 https://medium.freecodecamp.org/how-i-built-siriwavejs-library-maths-and-code-behind-6971497ae5c1
 
 ### iOS 9+ style
+<img src="siri-wave-ios9+.gif" />
