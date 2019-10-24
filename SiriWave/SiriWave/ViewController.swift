@@ -8,7 +8,7 @@
 import UIKit
 import AVKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
 
     @IBOutlet weak var siriWave: SiriWaveView!
     
@@ -27,7 +27,6 @@ class ViewController: UIViewController {
 
         func modulate() {
             ampl = Lerp.lerp(ampl, 1.5, 0.1)
-            //speed = Lerp.lerp(speed, 1, 0.1)
             self.siriWave.update(ampl * 5)
         }
         
@@ -38,9 +37,8 @@ class ViewController: UIViewController {
         }
     }
     
-    //Recorder Setup Begin
-    @objc
-    func setupRecorder() {
+    /// Recorder Setup Begin
+    @objc func setupRecorder() {
         if(checkMicPermission()) {
             startRecording()
         } else {
@@ -48,21 +46,17 @@ class ViewController: UIViewController {
         }
     }
     
-    @objc
-    func updateMeters() {
+    @objc func updateMeters() {
         var normalizedValue: Float
         recorder.updateMeters()
         normalizedValue = normalizedPowerLevelFromDecibels(decibels: recorder.averagePower(forChannel: 0))
-        
-//        print("normalizedValue: \(normalizedValue)")
-        
         self.siriWave.update(CGFloat(normalizedValue) * 10)
     }
     
     private func startRecording() {
         let recordingSession = AVAudioSession.sharedInstance()
-        let recorderSettings = [AVSampleRateKey: NSNumber(value:44100.0),
-                                AVFormatIDKey: NSNumber(value:kAudioFormatAppleLossless),
+        let recorderSettings = [AVSampleRateKey: NSNumber(value: 44100.0),
+                                AVFormatIDKey: NSNumber(value: kAudioFormatAppleLossless),
                                 AVNumberOfChannelsKey: NSNumber(value: 2),
                                 AVEncoderAudioQualityKey: NSNumber(value: Int8(AVAudioQuality.min.rawValue))]
         
@@ -84,6 +78,7 @@ class ViewController: UIViewController {
             self.recorder.record()
             print("recorder enabled")
         } catch {
+            self.showErrorPopUp(errorMessage: error.localizedDescription)
             print("recorder init failed")
         }
     }
@@ -110,13 +105,26 @@ class ViewController: UIViewController {
         
         return permissionCheck
     }
-    private func normalizedPowerLevelFromDecibels(decibels:Float) -> Float {
-        if (decibels < -60.0 || decibels == 0.0) {
-            return 0.0;
+    
+    private func normalizedPowerLevelFromDecibels(decibels: Float) -> Float {
+        let minDecibels: Float = -60.0
+        if (decibels < minDecibels || decibels.isZero) {
+            return .zero
         }
         
-        return pow((pow(10.0, 0.05 * decibels) - pow(10.0, 0.05 * -60.0)) * (1.0 / (1.0 - pow(10.0, 0.05 * -60.0))), 1.0 / 2.0);
+        let powDecibels = pow(10.0, 0.05 * decibels)
+        let powMinDecibels = pow(10.0, 0.05 * minDecibels)
+        return pow((powDecibels - powMinDecibels) * (1.0 / (1.0 - powMinDecibels)), 1.0 / 2.0)
         
+    }
+    
+    private func showErrorPopUp(errorMessage: String) {
+        let alertController = UIAlertController(title: "Error",
+                                                message: errorMessage,
+                                                preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
     }
 }
 
