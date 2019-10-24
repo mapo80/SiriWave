@@ -23,14 +23,14 @@ final class ViewController: UIViewController {
     
     private func testWithoutMic() {
         var ampl: CGFloat = 1
-        var speed: CGFloat = 0.2
+        let speed: CGFloat = 0.1
 
         func modulate() {
-            ampl = Lerp.lerp(ampl, 1.5, 0.1)
+            ampl = Lerp.lerp(ampl, 1.5, speed)
             self.siriWave.update(ampl * 5)
         }
         
-        _ = Timeout.setInterval(0.2) {
+        _ = Timeout.setInterval(TimeInterval(speed)) {
             DispatchQueue.main.async {
                 modulate()
             }
@@ -60,7 +60,7 @@ final class ViewController: UIViewController {
                                 AVNumberOfChannelsKey: NSNumber(value: 2),
                                 AVEncoderAudioQualityKey: NSNumber(value: Int8(AVAudioQuality.min.rawValue))]
         
-        let url:URL = URL(fileURLWithPath:"/dev/null");
+        let url: URL = URL(fileURLWithPath:"/dev/null")
         do {
             
             let displayLink: CADisplayLink = CADisplayLink(target: self,

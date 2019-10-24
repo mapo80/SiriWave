@@ -7,9 +7,27 @@
 
 import UIKit
 
+extension UIColor {
+   convenience init(red: Int, green: Int, blue: Int) {
+       assert(red >= 0 && red <= 255, "Invalid red component")
+       assert(green >= 0 && green <= 255, "Invalid green component")
+       assert(blue >= 0 && blue <= 255, "Invalid blue component")
+
+       self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
+   }
+
+   convenience init(rgb: Int) {
+       self.init(
+           red: (rgb >> 16) & 0xFF,
+           green: (rgb >> 8) & 0xFF,
+           blue: rgb & 0xFF
+       )
+   }
+}
+
 public class SiriWaveView: UIView {
 
-    public private (set) var pixelDepth: CGFloat = 0.02
+    public private (set) var pixelDepth: CGFloat = 0.4
     public private (set) var amplitude: CGFloat = 1
     
     @IBInspectable
@@ -17,9 +35,9 @@ public class SiriWaveView: UIView {
     @IBInspectable
     public var speed: CGFloat = 0.4
 
-    public var colors: [UIColor] = [UIColor(red: 15.0/255.0, green: 82.0/255.0, blue: 169.0/255.0, alpha: 1),
-                                    UIColor(red: 173.0/255.0, green: 57.0/255.0, blue: 76.0/255.0, alpha: 1),
-                                    UIColor(red: 48.0/255.0, green: 220.0/255.0, blue: 155.0/255.0, alpha: 1)]
+    public var colors: [UIColor] = [UIColor(rgb: 0xF66767),
+                                    UIColor(rgb: 0xF9D5BB),
+                                    UIColor(rgb: 0xD35656)]
     
     private var lines: [SiriWaveLine] = []
     

@@ -96,31 +96,32 @@ public class SiriWaveLine {
         
         var maxY = -CGFloat.infinity
         var minX = CGFloat.infinity
-        
-        for sign in [1, -1] {
-            
+
+        let inArray = [1, -1]
+        for sign in inArray {
+
             ctx.beginPath()
             var i = -GRAPH_X
             while i <= GRAPH_X {
-                
+
                 let x = xpos(i)
                 let y = ypos(i)
                 let newY = heightMax/2 - CGFloat(sign) * y
-                
-                if(x == 0) {
+
+                if x.isZero {
                     ctx.move(to: CGPoint(x: x,
                                          y: newY))
                 } else {
                     ctx.addLine(to: CGPoint(x: x,
                                             y: newY))
                 }
-                
+
                 minX = min(minX, x)
                 maxY = max(maxY, y)
-                
+
                 i = i + pixelDepth
             }
-            
+
             ctx.closePath()
             ctx.setFillColor(color.cgColor)
             ctx.setStrokeColor(color.cgColor)
@@ -155,17 +156,20 @@ public class SiriWaveLine {
             // Generate a static T so that each curve is distant from each oterh
             var t: CGFloat = 4.0 * (-1.0 + (CGFloat(ci) / (CGFloat(noOfCurves) - 1.0) * 2.0))
             // but add a dynamic offset
-            t = t + offsets[ci];
+            t = t + offsets[ci]
             
-            let k = 1 / widths[ci];
-            let x = (i * k) - t;
+            let k = 1 / widths[ci]
+            let x = (i * k) - t
             
-            y = y + abs(amplitudes[ci] * sinus(verses[ci] * x,
-                                               phases[ci]) * globalAttFn(x))
+            let sin = sinus(verses[ci] * x, phases[ci])
+            let attFn = globalAttFn(x)
+            
+            
+            y = y + abs(amplitudes[ci] * sin * attFn)
         }
         
         // Divide for NoOfCurves so that y <= 1
-        return (y / CGFloat(noOfCurves));
+        return (y / CGFloat(noOfCurves))
     }
     private func ypos(_ i: CGFloat) -> CGFloat {
         return AMPLITUDE_FACTOR *
@@ -179,7 +183,7 @@ public class SiriWaveLine {
     }
     
     private func getRandomRange(_ e: [CGFloat]) -> CGFloat {
-        return e[0] + (CGFloat.random(in: 0 ..< 1) * (e[1] - e[0]));
+        return e[0] + (CGFloat.random(in: 0 ..< 1) * (e[1] - e[0]))
     }
     private func globalAttFn(_ x: CGFloat) -> CGFloat {
         return pow((ATT_FACTOR) / (ATT_FACTOR + pow(x, 2)),
