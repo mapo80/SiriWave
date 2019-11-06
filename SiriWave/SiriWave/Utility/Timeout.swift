@@ -9,8 +9,14 @@ import Foundation
 
 public class Timeout {
     
-    public static func setInterval(_ interval:TimeInterval, block:@escaping ()->Void) -> Timer {
-        return Timer.scheduledTimer(timeInterval: interval, target: BlockOperation(block: block), selector: #selector(Operation.main), userInfo: nil, repeats: true)
+    public typealias ComplectionBlock = () -> Void
+    
+    public static func setInterval(_ interval: TimeInterval,
+                                   block: @escaping ComplectionBlock) -> Timer {
+        return Timer.scheduledTimer(timeInterval: interval,
+                                    target: BlockOperation(block: block),
+                                    selector: #selector(Operation.main),
+                                    userInfo: nil, repeats: true)
     }
     
 }

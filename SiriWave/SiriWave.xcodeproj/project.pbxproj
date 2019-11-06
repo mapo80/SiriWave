@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		890CBC0E2362263F002BEF06 /* SiriWaveLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890CBC0D2362263F002BEF06 /* SiriWaveLine.swift */; };
 		C88D36D02232FB2F00594238 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88D36CF2232FB2F00594238 /* AppDelegate.swift */; };
 		C88D36D22232FB2F00594238 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88D36D12232FB2F00594238 /* ViewController.swift */; };
 		C88D36D52232FB2F00594238 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C88D36D32232FB2F00594238 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		890CBC0D2362263F002BEF06 /* SiriWaveLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiriWaveLine.swift; sourceTree = "<group>"; };
 		C88D36CC2232FB2F00594238 /* SiriWave.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SiriWave.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C88D36CF2232FB2F00594238 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C88D36D12232FB2F00594238 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				C88D36E22232FB9200594238 /* SiriWaveView.swift */,
+				890CBC0D2362263F002BEF06 /* SiriWaveLine.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 				C88D36D02232FB2F00594238 /* AppDelegate.swift in Sources */,
 				C88D36E32232FB9200594238 /* SiriWaveView.swift in Sources */,
 				C88D36F52233D63800594238 /* Lerp.swift in Sources */,
+				890CBC0E2362263F002BEF06 /* SiriWaveLine.swift in Sources */,
 				C88D36F72233D66000594238 /* Timeout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,6 +255,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -305,6 +310,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -322,7 +328,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.stoltz.SiriWave;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -340,7 +346,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.stoltz.SiriWave;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
